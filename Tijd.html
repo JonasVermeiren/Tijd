@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Date and Time</title>
+    <script>
+        async function fetchDateTime() {
+            try {
+                const response = await fetch('https://worldtimeapi.org/api/timezone/Europe/Brussels');
+                const data = await response.json();
+                document.getElementById('datetime').innerText = data.datetime;
+            } catch (error) {
+                console.error('Error fetching date and time:', error);
+            }
+        }
+        window.onload = fetchDateTime;
+    </script>
+</head>
+<body>
+    <h1>Current Date and Time in Belgium</h1>
+    <p id="datetime">Loading...</p>
+</body>
+</html>
